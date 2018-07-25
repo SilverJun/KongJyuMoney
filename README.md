@@ -8,6 +8,8 @@ KongJyuMoney is Bean Pocket.
 ## Features
 * 폭력성 0% 아주 클-린한 콩주머니 게임.
 * Unity2017 4.5
+* Blender 2.79로 일부 모델링
+* 첫 3D게임
 * 내 인생 두 번째 멀티플레이 지원 게임.
 
 ## Making History
