@@ -9,10 +9,13 @@ public class TestCamera : MonoBehaviour
     Vector2 _smooth;
     public float _sensitivity = 5.0f;
     public float _smoothing = 2.0f;
+    GameObject _kongjyu;
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+
+        _kongjyu = Resources.Load<GameObject>("Prefab/Kongjyumoney");
     }
 
     void RotateCam()
@@ -42,11 +45,21 @@ public class TestCamera : MonoBehaviour
         transform.Translate(forward);
     }
 
+    void FireKongjyu()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            var throwKongjyu = Instantiate(_kongjyu, transform.position, transform.rotation);
+            var force = transform.forward * 500.0f;
+            throwKongjyu.GetComponent<Rigidbody>().AddForce(force);
+        }
+    }
+
     void FixedUpdate()
     {
         RotateCam();
         MoveCam();
 
-
+        FireKongjyu();
     }
 }
