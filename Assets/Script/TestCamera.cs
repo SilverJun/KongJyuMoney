@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TestCamera : MonoBehaviour
 {
-    public float _speed = 10.0f;
     Vector2 _mouseLook;
     Vector2 _smooth;
+    public float _speed = 10.0f;
     public float _sensitivity = 5.0f;
     public float _smoothing = 2.0f;
     GameObject _kongjyu;
@@ -51,7 +51,9 @@ public class TestCamera : MonoBehaviour
         {
             var throwKongjyu = Instantiate(_kongjyu, transform.position, transform.rotation);
             var force = transform.forward * 500.0f;
-            throwKongjyu.GetComponent<Rigidbody>().AddForce(force);
+            var kongjyuRigid = throwKongjyu.GetComponent<Rigidbody>();
+            kongjyuRigid.AddForce(force);       /// add throw force. It must be changed.
+            kongjyuRigid.AddTorque(Random.Range(-5.0f, 5.0f), Random.Range(-5.0f, 5.0f), Random.Range(-5.0f, 5.0f));        /// random torque
         }
     }
 
