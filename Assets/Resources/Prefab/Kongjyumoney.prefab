@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7351963434058760312}
   m_Layer: 0
   m_Name: Kongjyumoney
-  m_TagString: Untagged
+  m_TagString: kongjyu
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6231671739895448600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 34.44, y: 6.9, z: 50.892}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.14970751, y: 0.14970751, z: 0.14970751}
   m_Children:
   - {fileID: 6387324813592198514}
   m_Father: {fileID: 0}
@@ -188,7 +188,7 @@ TrailRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.30596924
+        value: 0.14177704
         inSlope: -0.009693147
         outSlope: -0.009693147
         tangentMode: 0
@@ -196,8 +196,8 @@ TrailRenderer:
         inWeight: 0.33333334
         outWeight: 1
       - serializedVersion: 3
-        time: 0.32054996
-        value: 0.18263687
+        time: 0.31729984
+        value: 0.06323685
         inSlope: -0.4932474
         outSlope: -0.4932474
         tangentMode: 0
