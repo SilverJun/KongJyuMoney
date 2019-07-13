@@ -9,6 +9,7 @@ public class PlayerThrow : MonoBehaviour
     [SerializeField]
     [Range(100.0f, 750.0f)]
     float _throwSpeed = 500.0f;     // maybe Range(100, 750);
+    bool _isThrowing = false;
 
     void Start()
     {
@@ -18,7 +19,7 @@ public class PlayerThrow : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && !_isThrowing)
         {
             StartCoroutine(ThrowKongjyu());
         }
@@ -26,12 +27,15 @@ public class PlayerThrow : MonoBehaviour
 
     IEnumerator ThrowKongjyu()
     {
-        _anim.SetLayerWeight(1, 1.0f);
-        yield return new WaitUntil(()=>Input.GetMouseButtonUp(0));
+        _isThrowing = true;
+        _anim.SetBool("Standby", true);
+        yield return new WaitUntil(()=>Input.GetMouseButtonUp(0));      // Wait for mouse up.
 
         // throw
+        _anim.SetTrigger("ThrowNow");
+        _anim.SetBool("Standby", false);
 
-        // restore animation layer
-        _anim.SetLayerWeight(1, 0.0f);
+        yield return new WaitUntil(()=>_anim.GetCurrentAnimatorStateInfo(1).IsName("Idle"));        // Wait for transition to idle
+        _isThrowing = false;
     }
 }
